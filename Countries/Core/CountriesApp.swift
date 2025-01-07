@@ -13,7 +13,7 @@ struct CountriesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CountryListView()
+            CountryListRouter.createModule()
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             

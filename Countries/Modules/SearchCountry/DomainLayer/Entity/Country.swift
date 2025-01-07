@@ -1,12 +1,12 @@
 //
-//  Country.swift
+//  CountryEntity.swift
 //  Countries
 //
 //  Created by Abdelrahman Hussien [Pharma] on 7/1/25.
 //
 
-// MARK: - Country
-struct Country: Codable {
+// MARK: - CountryEntity
+struct CountryEntity: Codable {
     let name: String
     let capital: String?
     let flags: Flags

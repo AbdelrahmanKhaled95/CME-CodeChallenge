@@ -5,7 +5,7 @@
 //  Created by Abdelrahman Hussien [Pharma] on 7/1/25.
 //
 
-class SearchRepo {
+class SearchRepo: SearchRepoProtocol {
     
     // MARK: - Properties
     let client: BaseAPIClient
@@ -16,7 +16,7 @@ class SearchRepo {
     }
     
     // MARK: - Method
-    func fetchCountries() async throws -> [Country] {
+    func fetchCountries() async throws -> [CountryEntity] {
         try await client.performRequest(path: SearchConfiguration.fetchCountry.path)
     }
 }

@@ -7,5 +7,5 @@
 
 protocol SearchCountryUseCaseProtocol {
     
-    func searchCountry() async throws -> [Country]
+    func search() async throws -> [CountryModel]
 }

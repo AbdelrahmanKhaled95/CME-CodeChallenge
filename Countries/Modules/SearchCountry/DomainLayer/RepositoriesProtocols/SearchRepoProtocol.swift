@@ -7,5 +7,5 @@
 
 protocol SearchRepoProtocol {
     
-    func fetchCountries() async throws -> [Country]
+    func fetchCountries() async throws -> [CountryEntity]
 }

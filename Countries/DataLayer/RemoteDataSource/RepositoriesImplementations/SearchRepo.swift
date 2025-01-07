@@ -17,6 +17,6 @@ class SearchRepo {
     
     // MARK: - Method
     func fetchCountries() async throws -> [Country] {
-        client.performRequest(path: SearchConfiguration.fetchCountry)
+        try await client.performRequest(path: SearchConfiguration.fetchCountry.path)
     }
 }

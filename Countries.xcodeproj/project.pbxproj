@@ -20,6 +20,9 @@
 		C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF12D2D4A69000D087F /* Environment.swift */; };
 		C3772AF52D2D4E4D000D087F /* SearchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF42D2D4E4D000D087F /* SearchConfiguration.swift */; };
 		C3772AF82D2D4F76000D087F /* SearchRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF72D2D4F76000D087F /* SearchRepo.swift */; };
+		C3772AFF2D2D59ED000D087F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AFE2D2D59ED000D087F /* Country.swift */; };
+		C3772B042D2D5C8E000D087F /* SearchRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B032D2D5C8D000D087F /* SearchRepoProtocol.swift */; };
+		C3772B072D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B062D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		C3772AF12D2D4A69000D087F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		C3772AF42D2D4E4D000D087F /* SearchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfiguration.swift; sourceTree = "<group>"; };
 		C3772AF72D2D4F76000D087F /* SearchRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepo.swift; sourceTree = "<group>"; };
+		C3772AFE2D2D59ED000D087F /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		C3772B032D2D5C8D000D087F /* SearchRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoProtocol.swift; sourceTree = "<group>"; };
+		C3772B062D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryUseCaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 			children = (
 				C3772AE82D2D4545000D087F /* Core */,
 				C3772ADE2D2D2D57000D087F /* DataLayer */,
+				C3772AF92D2D599D000D087F /* Modules */,
 				C30A1C692D2D2CA4003E4680 /* CountriesApp.swift */,
 				C30A1C6B2D2D2CA4003E4680 /* ContentView.swift */,
 				C30A1C6D2D2D2CA9003E4680 /* Assets.xcassets */,
@@ -160,6 +167,64 @@
 			path = RepositoriesImplementations;
 			sourceTree = "<group>";
 		};
+		C3772AF92D2D599D000D087F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AFA2D2D59AC000D087F /* SearchCountry */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C3772AFA2D2D59AC000D087F /* SearchCountry */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AFC2D2D59C6000D087F /* PresentationLayer */,
+				C3772AFB2D2D59BC000D087F /* DomainLayer */,
+			);
+			path = SearchCountry;
+			sourceTree = "<group>";
+		};
+		C3772AFB2D2D59BC000D087F /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C3772B052D2D5D95000D087F /* UseCasesProtocols */,
+				C3772B022D2D5C6C000D087F /* RepositoriesProtocols */,
+				C3772AFD2D2D59E0000D087F /* Entity */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		C3772AFC2D2D59C6000D087F /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		C3772AFD2D2D59E0000D087F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AFE2D2D59ED000D087F /* Country.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		C3772B022D2D5C6C000D087F /* RepositoriesProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3772B032D2D5C8D000D087F /* SearchRepoProtocol.swift */,
+			);
+			path = RepositoriesProtocols;
+			sourceTree = "<group>";
+		};
+		C3772B052D2D5D95000D087F /* UseCasesProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3772B062D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift */,
+			);
+			path = UseCasesProtocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,9 +303,12 @@
 				C30A1C762D2D2CA9003E4680 /* Countries.xcdatamodeld in Sources */,
 				C3772AF52D2D4E4D000D087F /* SearchConfiguration.swift in Sources */,
 				C3772AE32D2D30AE000D087F /* BaseAPIClient.swift in Sources */,
+				C3772AFF2D2D59ED000D087F /* Country.swift in Sources */,
 				C3772AF82D2D4F76000D087F /* SearchRepo.swift in Sources */,
+				C3772B042D2D5C8E000D087F /* SearchRepoProtocol.swift in Sources */,
 				C30A1C6A2D2D2CA4003E4680 /* CountriesApp.swift in Sources */,
 				C3772AE72D2D3365000D087F /* APIError.swift in Sources */,
+				C3772B072D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

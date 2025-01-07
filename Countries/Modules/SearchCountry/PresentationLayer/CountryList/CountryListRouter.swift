@@ -15,9 +15,12 @@ class CountryListRouter {
         
     static func createModule() -> some View {
         
+        let locationManager = LocationManager()
+        
         let router = CountryListRouter()
         let useCase = SearchCountryUseCase(searchRepo: SearchRepo())
-        let viewModel = CountryListViewModel(useCase: useCase, router: router)
+        let viewModel = CountryListViewModel(useCase: useCase, router: router,
+                                             locationManager: locationManager)
         let view =  CountryListView(viewModel: viewModel)
         
         return view

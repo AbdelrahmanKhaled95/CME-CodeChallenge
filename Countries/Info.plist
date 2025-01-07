@@ -4,5 +4,9 @@
 <dict>
 	<key>BaseURL</key>
 	<string>$(BASE_URL)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to show your country at top of the list</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to show your country at top of the list</string>
 </dict>
 </plist>

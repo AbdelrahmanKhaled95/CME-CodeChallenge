@@ -15,11 +15,12 @@ class SearchCountryUseCase: SearchCountryUseCaseProtocol {
         self.searchRepo = searchRepo
     }
     
-    func search() async throws -> [CountryModel] {
+    func search(for country: String) async throws -> CountryModel? {
         
         do {
             let countryList =  try await searchRepo.fetchCountries()
-            return countryList.map { CountryModel(name: $0.name, capital: $0.capital, flags: $0.flags, currencies: $0.currencies)}
+                .map { CountryModel(name: $0.name, capital: $0.capital, flags: $0.flags, currencies: $0.currencies)}
+            return countryList.first(where: { $0.name.lowercased() == country.lowercased()})
         } catch {
             throw error
         }

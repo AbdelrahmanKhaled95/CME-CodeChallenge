@@ -13,11 +13,13 @@
 		C30A1C712D2D2CA9003E4680 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30A1C702D2D2CA9003E4680 /* Preview Assets.xcassets */; };
 		C30A1C732D2D2CA9003E4680 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A1C722D2D2CA9003E4680 /* Persistence.swift */; };
 		C30A1C762D2D2CA9003E4680 /* Countries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C30A1C742D2D2CA9003E4680 /* Countries.xcdatamodeld */; };
-		C3772AE32D2D30AE000D087F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE22D2D30AE000D087F /* Client.swift */; };
-		C3772AE52D2D30CC000D087F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE42D2D30CC000D087F /* EndPoint.swift */; };
+		C3772AE32D2D30AE000D087F /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE22D2D30AE000D087F /* BaseAPIClient.swift */; };
+		C3772AE52D2D30CC000D087F /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE42D2D30CC000D087F /* APIEndPoint.swift */; };
 		C3772AE72D2D3365000D087F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE62D2D3365000D087F /* APIError.swift */; };
 		C3772AF02D2D4A14000D087F /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3772AEF2D2D4A14000D087F /* info.plist */; };
 		C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF12D2D4A69000D087F /* Environment.swift */; };
+		C3772AF52D2D4E4D000D087F /* SearchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF42D2D4E4D000D087F /* SearchConfiguration.swift */; };
+		C3772AF82D2D4F76000D087F /* SearchRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF72D2D4F76000D087F /* SearchRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +30,14 @@
 		C30A1C702D2D2CA9003E4680 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C30A1C722D2D2CA9003E4680 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C30A1C752D2D2CA9003E4680 /* Countries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Countries.xcdatamodel; sourceTree = "<group>"; };
-		C3772AE22D2D30AE000D087F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		C3772AE42D2D30CC000D087F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		C3772AE22D2D30AE000D087F /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
+		C3772AE42D2D30CC000D087F /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
 		C3772AE62D2D3365000D087F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		C3772AEE2D2D48FB000D087F /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		C3772AEF2D2D4A14000D087F /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		C3772AF12D2D4A69000D087F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		C3772AF42D2D4E4D000D087F /* SearchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfiguration.swift; sourceTree = "<group>"; };
+		C3772AF72D2D4F76000D087F /* SearchRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		C3772AE02D2D2FF6000D087F /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				C3772AF62D2D4F4A000D087F /* RepositoriesImplementations */,
+				C3772AF32D2D4E33000D087F /* Configurations */,
 				C3772AE12D2D3091000D087F /* APIClient */,
 			);
 			path = RemoteDataSource;
@@ -113,8 +119,8 @@
 		C3772AE12D2D3091000D087F /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				C3772AE22D2D30AE000D087F /* Client.swift */,
-				C3772AE42D2D30CC000D087F /* EndPoint.swift */,
+				C3772AE22D2D30AE000D087F /* BaseAPIClient.swift */,
+				C3772AE42D2D30CC000D087F /* APIEndPoint.swift */,
 				C3772AE62D2D3365000D087F /* APIError.swift */,
 			);
 			path = APIClient;
@@ -136,6 +142,22 @@
 				C3772AF12D2D4A69000D087F /* Environment.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		C3772AF32D2D4E33000D087F /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AF42D2D4E4D000D087F /* SearchConfiguration.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		C3772AF62D2D4F4A000D087F /* RepositoriesImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AF72D2D4F76000D087F /* SearchRepo.swift */,
+			);
+			path = RepositoriesImplementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,12 +231,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3772AE52D2D30CC000D087F /* EndPoint.swift in Sources */,
+				C3772AE52D2D30CC000D087F /* APIEndPoint.swift in Sources */,
 				C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */,
 				C30A1C732D2D2CA9003E4680 /* Persistence.swift in Sources */,
 				C30A1C6C2D2D2CA4003E4680 /* ContentView.swift in Sources */,
 				C30A1C762D2D2CA9003E4680 /* Countries.xcdatamodeld in Sources */,
-				C3772AE32D2D30AE000D087F /* Client.swift in Sources */,
+				C3772AF52D2D4E4D000D087F /* SearchConfiguration.swift in Sources */,
+				C3772AE32D2D30AE000D087F /* BaseAPIClient.swift in Sources */,
+				C3772AF82D2D4F76000D087F /* SearchRepo.swift in Sources */,
 				C30A1C6A2D2D2CA4003E4680 /* CountriesApp.swift in Sources */,
 				C3772AE72D2D3365000D087F /* APIError.swift in Sources */,
 			);

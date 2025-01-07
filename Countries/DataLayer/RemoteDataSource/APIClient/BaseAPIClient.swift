@@ -1,5 +1,5 @@
 //
-//  Client.swift
+//  BaseAPIClient.swift
 //  Countries
 //
 //  Created by Abdelrahman Hussien [Pharma] on 7/1/25.
@@ -19,9 +19,9 @@ class BaseAPIClient {
     }
 
     //MARK: - Methods
-    private func createTaskAndHandleResponseHelper<T: Decodable>() async throws -> T {
+    private func fetchData<T: Decodable>(from url: URL?) async throws -> T {
         
-        guard let url = createURL(path: baseUrl) else { throw APIError.generalError }
+        guard let url else { throw APIError.generalError }
         
         do {
             
@@ -38,8 +38,14 @@ class BaseAPIClient {
         }
     }
     
-    private func createURL(path: String) -> URL? {
+    private func createURL(with path: String) -> URL? {
         
         return URLComponents(string: "\(baseUrl)\(path)")?.url
+    }
+    
+    func performRequest<T: Decodable>(path: String) async throws -> T {
+        
+        let url = createURL(with: path)
+        return try await fetchData(from: url)
     }
 }

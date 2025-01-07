@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  Countries
+//
+//  Created by Abdelrahman Hussien [Pharma] on 7/1/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = https:/$()/restcountries.com
+BUNDLE_ID = com.abdo.cme
+DISPLAY_NAME = CME-CountriesInfo

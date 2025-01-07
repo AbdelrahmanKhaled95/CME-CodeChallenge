@@ -16,6 +16,8 @@
 		C3772AE32D2D30AE000D087F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE22D2D30AE000D087F /* Client.swift */; };
 		C3772AE52D2D30CC000D087F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE42D2D30CC000D087F /* EndPoint.swift */; };
 		C3772AE72D2D3365000D087F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AE62D2D3365000D087F /* APIError.swift */; };
+		C3772AF02D2D4A14000D087F /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3772AEF2D2D4A14000D087F /* info.plist */; };
+		C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772AF12D2D4A69000D087F /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		C3772AE22D2D30AE000D087F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		C3772AE42D2D30CC000D087F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		C3772AE62D2D3365000D087F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		C3772AEE2D2D48FB000D087F /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		C3772AEF2D2D4A14000D087F /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		C3772AF12D2D4A69000D087F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 		C30A1C682D2D2CA4003E4680 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
+				C3772AE82D2D4545000D087F /* Core */,
 				C3772ADE2D2D2D57000D087F /* DataLayer */,
 				C30A1C692D2D2CA4003E4680 /* CountriesApp.swift */,
 				C30A1C6B2D2D2CA4003E4680 /* ContentView.swift */,
@@ -112,6 +118,24 @@
 				C3772AE62D2D3365000D087F /* APIError.swift */,
 			);
 			path = APIClient;
+			sourceTree = "<group>";
+		};
+		C3772AE82D2D4545000D087F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AED2D2D48C8000D087F /* Config */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C3772AED2D2D48C8000D087F /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C3772AEE2D2D48FB000D087F /* Production.xcconfig */,
+				C3772AEF2D2D4A14000D087F /* info.plist */,
+				C3772AF12D2D4A69000D087F /* Environment.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +198,7 @@
 			files = (
 				C30A1C712D2D2CA9003E4680 /* Preview Assets.xcassets in Resources */,
 				C30A1C6E2D2D2CA9003E4680 /* Assets.xcassets in Resources */,
+				C3772AF02D2D4A14000D087F /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3772AE52D2D30CC000D087F /* EndPoint.swift in Sources */,
+				C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */,
 				C30A1C732D2D2CA9003E4680 /* Persistence.swift in Sources */,
 				C30A1C6C2D2D2CA4003E4680 /* ContentView.swift in Sources */,
 				C30A1C762D2D2CA9003E4680 /* Countries.xcdatamodeld in Sources */,
@@ -199,6 +225,7 @@
 /* Begin XCBuildConfiguration section */
 		C30A1C772D2D2CA9003E4680 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3772AEE2D2D48FB000D087F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -262,6 +289,7 @@
 		};
 		C30A1C782D2D2CA9003E4680 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3772AEE2D2D48FB000D087F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -318,6 +346,7 @@
 		};
 		C30A1C7A2D2D2CA9003E4680 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3772AEE2D2D48FB000D087F /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,6 +379,7 @@
 		};
 		C30A1C7B2D2D2CA9003E4680 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3772AEE2D2D48FB000D087F /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

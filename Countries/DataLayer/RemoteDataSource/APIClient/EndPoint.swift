@@ -9,4 +9,8 @@ enum APIEndPoint: String {
     
     //MARK: - SearchCountry
     case searchCountry = "v2/all"
+    
+    var path: String {
+        Environment.baseUrl
+    }
 }

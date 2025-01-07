@@ -26,6 +26,26 @@ struct CountryListView: View {
                           onSearch: { search() })
                 
                 ZStack {
+                    List {
+                        ForEach(viewModel.searchResults, id: \.name) { country in
+                            
+                            HStack {
+                                Text(country.name)
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.1)))
+                                
+                                Spacer()
+                                
+                                KFImage(URL(string: country.flags.png))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                            }
+                        }
+                        .onDelete(perform: deleteCountry)
+                        .padding(.vertical, 8)
+                        .listStyle(PlainListStyle())
+                    }
+                    
                     if viewModel.isLoading {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
@@ -35,27 +55,6 @@ struct CountryListView: View {
                             .shadow(radius: 10)
                     }
                 }
-                
-                List {
-                    ForEach(viewModel.searchResults, id: \.name) { country in
-                        
-                        HStack {
-                            Text(country.name)
-                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.1)))
-                            
-                            Spacer()
-                            
-                            KFImage(URL(string: country.flags.png))
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
-                        }
-                    }
-                    .onDelete(perform: deleteCountry)
-                    .padding(.vertical, 8)
-                    .listStyle(PlainListStyle())
-                }
-                
                 
                 .alert(isPresented: $viewModel.showError) {
                     Alert(

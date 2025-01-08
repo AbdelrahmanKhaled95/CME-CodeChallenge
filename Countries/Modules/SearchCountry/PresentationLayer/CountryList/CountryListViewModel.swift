@@ -11,7 +11,6 @@ import CoreData
 class CountryListViewModel: ObservableObject {
     
     // MARK: - Published Properties
-    @Published var searchText: String = ""
     @Published var searchResults: [CountryModel] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -19,15 +18,12 @@ class CountryListViewModel: ObservableObject {
     
     // MARK: - Stored Properties
     private let useCase: SearchCountryUseCaseProtocol
-    private let router: CountryListRouterProtocol
     private let locationManager: LocationManagerProtocol
     
     // MARK: - Init
-    init(useCase: SearchCountryUseCaseProtocol, 
-         router: CountryListRouterProtocol,
+    init(useCase: SearchCountryUseCaseProtocol,
          locationManager: LocationManagerProtocol) {
         self.useCase = useCase
-        self.router = router
         self.locationManager = locationManager
         
         didLoad()
@@ -60,25 +56,26 @@ class CountryListViewModel: ObservableObject {
         
         if query.trimmingCharacters(in: .whitespaces).isEmpty {
             showError = true
-            errorMessage = "Please enter a country to search"
+            errorMessage = CountryListError.emptySearchField.message
             return false
         }
         
         if searchResults.count >= 5 {
             showError = true
-            errorMessage = "Can't add more countries, Please remove atleast one"
+            errorMessage = CountryListError.fullList.message
             return false
         }
         
         if searchResults.contains(where: { $0.name?.lowercased() == query.lowercased() }) {
             showError = true
-            errorMessage = "Country already exists. Please choose another"
+            errorMessage = CountryListError.duplicate.message
             return false
         }
         
         return true
     }
     
+    @MainActor
     func search(with country: String) async {
         
         guard validEntry(query: country) else { return }
@@ -87,21 +84,19 @@ class CountryListViewModel: ObservableObject {
         
         do {
             guard let country = try await useCase.search(for: country) else {
-                isLoading = false 
+                isLoading = false
                 showError = true
-                errorMessage = "No country with this name \(country) was found"
+                errorMessage = CountryListError.wrongName(country).message
                 return
             }
             
-            DispatchQueue.main.async { [weak self] in
-                self?.searchResults.append(country)
-                self?.isLoading = false 
-            }
+            searchResults.append(country)
+            isLoading = false
             
         } catch {
             isLoading = false
             showError = true
-            errorMessage = error.localizedDescription
+            errorMessage = CountryListError.other(error.localizedDescription).message
         }
     }
     

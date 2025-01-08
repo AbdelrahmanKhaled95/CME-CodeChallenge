@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-protocol CountryListRouterProtocol {
-    
-}
-
 class CountryListRouter {
+    
+    var view: (any View)?
         
     static func createModule() -> some View {
         
@@ -19,16 +17,10 @@ class CountryListRouter {
         
         let router = CountryListRouter()
         let useCase = SearchCountryUseCase(searchRepo: SearchRepo())
-        let viewModel = CountryListViewModel(useCase: useCase, router: router,
+        let viewModel = CountryListViewModel(useCase: useCase,
                                              locationManager: locationManager)
-        let view =  CountryListView(viewModel: viewModel)
-        
+        let view = CountryListView(viewModel: viewModel)
+        router.view = view
         return view
     }
-}
-
-extension CountryListRouter: CountryListRouterProtocol {
-    
-    
-    
 }

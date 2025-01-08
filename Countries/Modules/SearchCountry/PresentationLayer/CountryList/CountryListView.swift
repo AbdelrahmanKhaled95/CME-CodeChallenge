@@ -10,7 +10,7 @@ import Kingfisher
 
 struct CountryListView: View {
     
-    @ObservedObject var viewModel: CountryListViewModel
+    @ObservedObject private var viewModel: CountryListViewModel
     @State private var searchText: String = ""
     
     init(viewModel: CountryListViewModel) {
@@ -30,15 +30,17 @@ struct CountryListView: View {
                         ForEach(viewModel.searchResults, id: \.name) { country in
                             
                             HStack {
-                                Text(country.name ?? "")
-                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.1)))
-                                
-                                Spacer()
-                                
-                                KFImage(URL(string: country.flag ?? ""))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
+                                NavigationLink(destination: CountryDetailsRouter.createModule(with: country)) {
+                                    Text(country.name ?? "")
+                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.1)))
+                                    
+                                    Spacer()
+                                    
+                                    KFImage(URL(string: country.flag ?? ""))
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24)
+                                }
                             }
                         }
                         .onDelete(perform: deleteCountry)

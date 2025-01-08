@@ -11,7 +11,6 @@ import CoreData
 class CountryListViewModel: ObservableObject {
     
     // MARK: - Published Properties
-    @Published var searchText: String = ""
     @Published var searchResults: [CountryModel] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -19,15 +18,12 @@ class CountryListViewModel: ObservableObject {
     
     // MARK: - Stored Properties
     private let useCase: SearchCountryUseCaseProtocol
-    private let router: CountryListRouterProtocol
     private let locationManager: LocationManagerProtocol
     
     // MARK: - Init
-    init(useCase: SearchCountryUseCaseProtocol, 
-         router: CountryListRouterProtocol,
+    init(useCase: SearchCountryUseCaseProtocol,
          locationManager: LocationManagerProtocol) {
         self.useCase = useCase
-        self.router = router
         self.locationManager = locationManager
         
         didLoad()
@@ -79,6 +75,7 @@ class CountryListViewModel: ObservableObject {
         return true
     }
     
+    @MainActor
     func search(with country: String) async {
         
         guard validEntry(query: country) else { return }
@@ -87,16 +84,14 @@ class CountryListViewModel: ObservableObject {
         
         do {
             guard let country = try await useCase.search(for: country) else {
-                isLoading = false 
+                isLoading = false
                 showError = true
                 errorMessage = "No country with this name \(country) was found"
                 return
             }
             
-            DispatchQueue.main.async { [weak self] in
-                self?.searchResults.append(country)
-                self?.isLoading = false 
-            }
+            searchResults.append(country)
+            isLoading = false
             
         } catch {
             isLoading = false

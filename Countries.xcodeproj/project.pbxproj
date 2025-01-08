@@ -34,6 +34,7 @@
 		C3772B4D2D2EA7CA000D087F /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B4C2D2EA7CA000D087F /* CountryDetailsView.swift */; };
 		C3772B4F2D2EACFF000D087F /* CountryDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B4E2D2EACFF000D087F /* CountryDetailsRouter.swift */; };
 		C3772B512D2EAD42000D087F /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B502D2EAD42000D087F /* CountryDetailsViewModel.swift */; };
+		C3AA66332D2ECF0A00BCDDE4 /* CountryListError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AA66322D2ECF0A00BCDDE4 /* CountryListError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		C3772B4C2D2EA7CA000D087F /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		C3772B4E2D2EACFF000D087F /* CountryDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsRouter.swift; sourceTree = "<group>"; };
 		C3772B502D2EAD42000D087F /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
+		C3AA66322D2ECF0A00BCDDE4 /* CountryListError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				C3772B0C2D2D5E8C000D087F /* CountryListView.swift */,
 				C3772B162D2D7F7D000D087F /* CountryListRouter.swift */,
 				C3772B182D2D8C0E000D087F /* CountryModel.swift */,
+				C3AA66322D2ECF0A00BCDDE4 /* CountryListError.swift */,
 			);
 			path = CountryList;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				C3772AF82D2D4F76000D087F /* SearchRepo.swift in Sources */,
 				C3772B042D2D5C8E000D087F /* SearchRepoProtocol.swift in Sources */,
 				C3772B122D2D6B30000D087F /* SearchBarView.swift in Sources */,
+				C3AA66332D2ECF0A00BCDDE4 /* CountryListError.swift in Sources */,
 				C30A1C6A2D2D2CA4003E4680 /* CountriesApp.swift in Sources */,
 				C3772AE72D2D3365000D087F /* APIError.swift in Sources */,
 				C3772B072D2D5DCD000D087F /* SearchCountryUseCaseProtocol.swift in Sources */,

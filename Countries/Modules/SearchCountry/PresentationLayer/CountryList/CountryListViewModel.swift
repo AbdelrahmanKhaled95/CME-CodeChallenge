@@ -56,19 +56,19 @@ class CountryListViewModel: ObservableObject {
         
         if query.trimmingCharacters(in: .whitespaces).isEmpty {
             showError = true
-            errorMessage = "Please enter a country to search"
+            errorMessage = CountryListError.emptySearchField.message
             return false
         }
         
         if searchResults.count >= 5 {
             showError = true
-            errorMessage = "Can't add more countries, Please remove atleast one"
+            errorMessage = CountryListError.fullList.message
             return false
         }
         
         if searchResults.contains(where: { $0.name?.lowercased() == query.lowercased() }) {
             showError = true
-            errorMessage = "Country already exists. Please choose another"
+            errorMessage = CountryListError.duplicate.message
             return false
         }
         
@@ -86,7 +86,7 @@ class CountryListViewModel: ObservableObject {
             guard let country = try await useCase.search(for: country) else {
                 isLoading = false
                 showError = true
-                errorMessage = "No country with this name \(country) was found"
+                errorMessage = CountryListError.wrongName(country).message
                 return
             }
             
@@ -96,7 +96,7 @@ class CountryListViewModel: ObservableObject {
         } catch {
             isLoading = false
             showError = true
-            errorMessage = error.localizedDescription
+            errorMessage = CountryListError.other(error.localizedDescription).message
         }
     }
     

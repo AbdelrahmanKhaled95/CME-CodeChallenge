@@ -82,7 +82,6 @@ extension SearchRepo {
                 
                 try viewContext.save()
                 
-                print("Person deleted successfully")
             } else {
                 print("No person found with the given name.")
             }

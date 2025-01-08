@@ -30,12 +30,12 @@ struct CountryListView: View {
                         ForEach(viewModel.searchResults, id: \.name) { country in
                             
                             HStack {
-                                Text(country.name)
+                                Text(country.name ?? "")
                                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.1)))
                                 
                                 Spacer()
                                 
-                                KFImage(URL(string: country.flags.png))
+                                KFImage(URL(string: country.flag ?? ""))
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24, height: 24)

@@ -19,8 +19,8 @@ class SearchCountryUseCase: SearchCountryUseCaseProtocol {
         
         do {
             let countryList =  try await searchRepo.fetchCountries()
-                .map { CountryModel(name: $0.name, capital: $0.capital, flags: $0.flags, currencies: $0.currencies)}
-            return countryList.first(where: { $0.name.lowercased() == country.lowercased()})
+                .map { CountryModel(name: $0.name, capital: $0.capital, flag: $0.flags.png, currencyCode: $0.currencies?.first?.code, currencyName: $0.currencies?.first?.name, currencySymbol: $0.currencies?.first?.symbol)}
+            return countryList.first(where: { $0.name?.lowercased() == country.lowercased()})
         } catch {
             throw error
         }

@@ -8,18 +8,10 @@
 // MARK: - CountryModel
 struct CountryModel {
     
-    let name: String
+    let name: String?
     let capital: String?
-    let flags: Flags
-    let currencies: [Currency]?
-}
-
-// MARK: - Currency
-struct CurrencyModel {
-    let code, name, symbol: String
-}
-
-// MARK: - Flags
-struct FlagsModel {
-    let png: String
+    let flag: String?
+    let currencyCode: String?
+    let currencyName: String?
+    let currencySymbol: String?
 }

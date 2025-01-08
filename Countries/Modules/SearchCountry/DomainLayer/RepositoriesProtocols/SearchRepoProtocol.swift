@@ -7,5 +7,7 @@
 
 protocol SearchRepoProtocol {
     
-    func fetchCountries() async throws -> [CountryEntity]
+    func fetchCachedCountries() -> [CountryEntity]
+    func deleteCashedCountry(_ country: CountryEntity)
+    func fetchCountries(for country: String) async throws -> CountryEntity?
 }

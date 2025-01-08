@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class CountryListViewModel: ObservableObject {
     
@@ -35,9 +36,24 @@ class CountryListViewModel: ObservableObject {
     // MARK: - Methods
     private func didLoad() {
         
+        checkCachedData()
+        getLoaction(searchResults.isEmpty)
+    }
+    
+    private func getLoaction(_ isEnabled: Bool) {
+        
+        guard isEnabled else { return }
+        
         isLoading = true
         locationManager.delegate = self
         locationManager.requestLocation()
+    }
+    
+    private func checkCachedData() {
+        
+        isLoading = true
+        searchResults = useCase.cached()
+        isLoading = false
     }
     
     private func validEntry(query: String) -> Bool {
@@ -51,6 +67,12 @@ class CountryListViewModel: ObservableObject {
         if searchResults.count >= 5 {
             showError = true
             errorMessage = "Can't add more countries, Please remove atleast one"
+            return false
+        }
+        
+        if searchResults.contains(where: { $0.name?.lowercased() == query.lowercased() }) {
+            showError = true
+            errorMessage = "Country already exists. Please choose another"
             return false
         }
         
@@ -84,6 +106,9 @@ class CountryListViewModel: ObservableObject {
     }
     
     func removeCountry(at offsets: IndexSet) {
+        
+        guard let index = offsets.first else { return }
+        useCase.deleteCachedCountry(searchResults[index])
         searchResults.remove(atOffsets: offsets)
     }
 }

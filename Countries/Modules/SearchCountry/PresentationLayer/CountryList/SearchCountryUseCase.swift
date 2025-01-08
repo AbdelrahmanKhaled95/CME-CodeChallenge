@@ -14,15 +14,42 @@ class SearchCountryUseCase: SearchCountryUseCaseProtocol {
     init(searchRepo: SearchRepoProtocol) {
         self.searchRepo = searchRepo
     }
+
+    
+    //MARK: - Methods
+    func cached() -> [CountryModel] {
+        
+        let countryList = searchRepo.fetchCachedCountries()
+        return countryList.map({ countryModelDTO($0) })
+    }
+    
+    func deleteCachedCountry(_ country: CountryModel) {
+        
+        searchRepo.deleteCashedCountry(countryEntityDTO(country))
+    }
     
     func search(for country: String) async throws -> CountryModel? {
         
         do {
-            let countryList =  try await searchRepo.fetchCountries()
-                .map { CountryModel(name: $0.name, capital: $0.capital, flag: $0.flags.png, currencyCode: $0.currencies?.first?.code, currencyName: $0.currencies?.first?.name, currencySymbol: $0.currencies?.first?.symbol)}
-            return countryList.first(where: { $0.name?.lowercased() == country.lowercased()})
+            let country = try await searchRepo.fetchCountries(for: country)
+            return countryModelDTO(country)
         } catch {
             throw error
         }
+    }
+    
+    private func countryModelDTO(_ country: CountryEntity?) -> CountryModel {
+        
+        return CountryModel(name: country?.name,
+                            capital: country?.capital,
+                            flag: country?.flags.png,
+                            currencyCode: country?.currencies?.first?.code,
+                            currencyName: country?.currencies?.first?.name,
+                            currencySymbol: country?.currencies?.first?.symbol)
+    }
+    
+    private func countryEntityDTO(_ country: CountryModel) -> CountryEntity {
+        
+        return CountryEntity(name: country.name ?? "", capital: country.capital ?? "", flags: Flags(png: country.flag ?? ""), currencies: [Currency(code: country.currencyCode ?? "", name: country.currencyName ?? "", symbol: country.currencySymbol ?? "")])
     }
 }

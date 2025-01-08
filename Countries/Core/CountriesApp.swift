@@ -9,14 +9,10 @@ import SwiftUI
 
 @main
 struct CountriesApp: App {
-//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             CountryListRouter.createModule()
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
         }
     }
 }

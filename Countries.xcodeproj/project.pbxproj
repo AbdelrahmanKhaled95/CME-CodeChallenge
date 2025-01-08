@@ -30,6 +30,7 @@
 		C3772B1F2D2DD5D8000D087F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B1E2D2DD5D8000D087F /* LocationManager.swift */; };
 		C3772B272D2DDFDE000D087F /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B232D2DDBF4000D087F /* LocationManagerProtocol.swift */; };
 		C3772B292D2DE6E4000D087F /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B282D2DE6E4000D087F /* LocationManagerDelegate.swift */; };
+		C3772B4B2D2E7F63000D087F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3772B4A2D2E7F63000D087F /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		C3772B1E2D2DD5D8000D087F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C3772B232D2DDBF4000D087F /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		C3772B282D2DE6E4000D087F /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
+		C3772B4A2D2E7F63000D087F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		C3772ADE2D2D2D57000D087F /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C3772AF62D2D4F4A000D087F /* RepositoriesImplementations */,
 				C3772B452D2E7C7B000D087F /* LocalDataSource */,
 				C3772AE02D2D2FF6000D087F /* RemoteDataSource */,
 			);
@@ -123,7 +126,6 @@
 		C3772AE02D2D2FF6000D087F /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				C3772AF62D2D4F4A000D087F /* RepositoriesImplementations */,
 				C3772AF32D2D4E33000D087F /* Configurations */,
 				C3772AE12D2D3091000D087F /* APIClient */,
 			);
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				C30A1C742D2D2CA9003E4680 /* Countries.xcdatamodeld */,
+				C3772B4A2D2E7F63000D087F /* CoreDataStack.swift */,
 			);
 			path = LocalDataSource;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3772AE52D2D30CC000D087F /* APIEndPoint.swift in Sources */,
+				C3772B4B2D2E7F63000D087F /* CoreDataStack.swift in Sources */,
 				C3772AF22D2D4A6A000D087F /* Environment.swift in Sources */,
 				C3772B192D2D8C0E000D087F /* CountryModel.swift in Sources */,
 				C30A1C762D2D2CA9003E4680 /* Countries.xcdatamodeld in Sources */,
@@ -529,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Countries/Preview Content\"";
+				DEVELOPMENT_TEAM = D6TBJ96DP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Countries/Info.plist;

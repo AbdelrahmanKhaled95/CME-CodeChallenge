@@ -7,5 +7,7 @@
 
 protocol SearchCountryUseCaseProtocol {
     
-    func searchCountry() async throws -> [Country]
+    func cached() -> [CountryModel]
+    func deleteCachedCountry(_ country: CountryModel)
+    func search(for country: String) async throws -> CountryModel?
 }

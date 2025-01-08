@@ -29,7 +29,7 @@ class BaseAPIClient {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
             
-            if let urlError = error as? URLError {
+            if let _ = error as? URLError {
                 throw APIError.generalError
             } else if let decodingError = error as? DecodingError  {
                 throw APIError.decodingError(decodingError)

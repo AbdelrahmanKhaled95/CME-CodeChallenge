@@ -55,7 +55,7 @@ extension SearchRepo {
         do {
             try viewContext.save()
         } catch {
-            print("Error saving person: \(error)")
+            print("Error saving country: \(error)")
         }
     }
     
@@ -82,11 +82,9 @@ extension SearchRepo {
                 
                 try viewContext.save()
                 
-            } else {
-                print("No person found with the given name.")
             }
         } catch {
-            print("Failed to fetch or delete the person: \(error)")
+            print("Failed to fetch or delete: \(error)")
         }
     }
     
